@@ -1,0 +1,271 @@
+﻿<Window x:Class="WeatherDeskk.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="WeatherDeskk"
+        Height="650"
+        Width="1000"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource WindowBackgroundBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                Background="{DynamicResource HeaderBackgroundBrush}"
+                CornerRadius="0,0,24,24">
+            <Grid Margin="30,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock FontSize="30"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               Text="{Binding Localization[AppTitle], FallbackValue=Weather Dashboard}"/>
+                    <TextBlock Text="Modern WPF Weather Dashboard"
+                               FontSize="14"
+                               Foreground="#CBD5E1"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center">
+                    <Button Width="110"
+                            Height="34"
+                            Margin="0,0,10,0"
+                            Command="{Binding SetLightThemeCommand}"
+                            IsEnabled="{Binding IsLightThemeEnabled}"
+                            Content="{Binding Localization[LightTheme], FallbackValue=Light Theme}"/>
+
+                    <Button Width="110"
+                            Height="34"
+                            Command="{Binding SetDarkThemeCommand}"
+                            IsEnabled="{Binding IsDarkThemeEnabled}"
+                            Content="{Binding Localization[DarkTheme], FallbackValue=Dark Theme}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1" Margin="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="0.8*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="0,0,20,0">
+
+                <Border Background="{DynamicResource CardBackgroundBrush}"
+                        CornerRadius="20"
+                        Padding="24"
+                        Margin="0,0,0,20">
+                    <StackPanel>
+                        <TextBlock FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Foreground="{DynamicResource PrimaryTextBrush}"
+                                   Margin="0,0,0,15"
+                                   Text="{Binding Localization[AppTitle], FallbackValue=Weather Dashboard}"/>
+
+                        <TextBlock FontSize="14"
+                                   Foreground="{DynamicResource SecondaryTextBrush}"
+                                   Margin="0,0,0,8"
+                                   Text="{Binding Localization[SearchLabel], FallbackValue=Enter city name}"/>
+
+                        <DockPanel LastChildFill="False">
+                            <TextBox Width="320"
+                                     Height="40"
+                                     Padding="10,6"
+                                     FontSize="15"
+                                     VerticalContentAlignment="Center"
+                                     Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" />
+
+                            <Button Width="140"
+                                    Height="40"
+                                    Margin="12,0,0,0"
+                                    FontWeight="SemiBold"
+                                    Command="{Binding GetWeatherCommand}"
+                                    Content="{Binding Localization[GetWeather], FallbackValue=Get Weather}" />
+                        </DockPanel>
+
+                        <TextBlock Text="{Binding StatusMessage}"
+           Margin="0,14,0,0"
+           FontSize="13"
+           FontWeight="SemiBold"
+           Foreground="{Binding StatusColor}"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="{DynamicResource CardBackgroundBrush}"
+                        CornerRadius="20"
+                        Padding="24">
+                    <StackPanel>
+                        <TextBlock FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Foreground="{DynamicResource PrimaryTextBrush}"
+                                   Margin="0,0,0,18"
+                                   Text="{Binding Localization[WeatherResult], FallbackValue=Current Weather}"/>
+
+                        <Grid Margin="0,4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="City"
+                                       FontWeight="SemiBold"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+                            <TextBlock Grid.Column="1"
+                                       Text="{Binding CityName}"
+                                       Foreground="{DynamicResource PrimaryTextBrush}"/>
+                        </Grid>
+
+                        <Grid Margin="0,10,0,4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontWeight="SemiBold"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"
+                                       Text="{Binding Localization[Temperature], FallbackValue=Temperature}"/>
+                            <TextBlock Grid.Column="1"
+                                       Text="{Binding Temperature}"
+                                       Foreground="{DynamicResource PrimaryTextBrush}"/>
+                        </Grid>
+
+                        <Grid Margin="0,10,0,4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontWeight="SemiBold"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"
+                                       Text="{Binding Localization[Condition], FallbackValue=Condition}"/>
+                            <TextBlock Grid.Column="1"
+                                       Text="{Binding Description}"
+                                       Foreground="{DynamicResource PrimaryTextBrush}"/>
+                        </Grid>
+
+                        <Grid Margin="0,10,0,4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontWeight="SemiBold"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"
+                                       Text="{Binding Localization[Humidity], FallbackValue=Humidity}"/>
+                            <TextBlock Grid.Column="1"
+                                       Text="{Binding Humidity}"
+                                       Foreground="{DynamicResource PrimaryTextBrush}"/>
+                        </Grid>
+
+                        <Grid Margin="0,10,0,4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontWeight="SemiBold"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"
+                                       Text="{Binding Localization[WindSpeed], FallbackValue=Wind Speed}"/>
+                            <TextBlock Grid.Column="1"
+                                       Text="{Binding WindSpeed}"
+                                       Foreground="{DynamicResource PrimaryTextBrush}"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+
+                <Border Background="{DynamicResource CardBackgroundBrush}"
+                        CornerRadius="20"
+                        Padding="24"
+                        Margin="0,0,0,20">
+                    <StackPanel>
+                        <TextBlock FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Foreground="{DynamicResource PrimaryTextBrush}"
+                                   Margin="0,0,0,16"
+                                   Text="{Binding Localization[Language], FallbackValue=Language}"/>
+
+                        <Button Height="42"
+                                Margin="0,0,0,10"
+                                FontWeight="SemiBold"
+                                Command="{Binding SwitchToEnglishCommand}"
+                                IsEnabled="{Binding IsEnglishEnabled}"
+                                Content="{Binding Localization[English], FallbackValue=English}" />
+
+                        <Button Height="42"
+                                FontWeight="SemiBold"
+                                Command="{Binding SwitchToHindiCommand}"
+                                IsEnabled="{Binding IsHindiEnabled}"
+                                Content="{Binding Localization[Hindi], FallbackValue=Hindi}" />
+                    </StackPanel>
+                </Border>
+
+                <Border Background="#DBEAFE"
+        CornerRadius="20"
+        Padding="24">
+                    <StackPanel>
+                        <TextBlock Text="Project Highlights"
+                   FontSize="22"
+                   FontWeight="SemiBold"
+                   Foreground="#1E3A8A"
+                   Margin="0,0,0,16"/>
+
+                 
+                        <TextBlock Text="• MVVM Toolkit"
+                   FontSize="15"
+                   Margin="0,6"
+                   Foreground="#1E3A8A"/>
+
+                        <TextBlock Text="• Dependency Injection in App.xaml.cs"
+                   FontSize="15"
+                   Margin="0,6"
+                   Foreground="#1E3A8A"/>
+
+                        <TextBlock Text="• Error Handling"
+                   FontSize="15"
+                   Margin="0,6"
+                   Foreground="#1E3A8A"/>
+
+                        <TextBlock Text="• Enable / Disable Language Toggle Buttons"
+                   FontSize="15"
+                   Margin="0,6"
+                   Foreground="#1E3A8A"/>
+
+                        <TextBlock Text="• Disable Get Weather Button When Search Is Empty"
+                   FontSize="15"
+                   Margin="0,6"
+                   Foreground="#1E3A8A"/>
+
+                        <TextBlock Text="• Themeing Service"
+                   FontSize="15"
+                   Margin="0,6"
+                   Foreground="#1E3A8A"/>
+
+                        <TextBlock Text="• Validation"
+                   FontSize="15"
+                   Margin="0,6"
+                   Foreground="#1E3A8A"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+        <Border Grid.Row="2"
+                Background="{DynamicResource FooterBackgroundBrush}">
+            <TextBlock Text="Built with C#, WPF, MVVM Toolkit, and clean architecture"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="13"
+                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+        </Border>
+    </Grid>
+</Window>

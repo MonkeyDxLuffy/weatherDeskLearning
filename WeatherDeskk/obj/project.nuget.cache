@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "lzlpG1QpsBo=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\anish1001\\source\\repos\\WeatherDeskk\\WeatherDeskk\\WeatherDeskk.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\anish1001\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.1\\communitytoolkit.mvvm.8.4.1.nupkg.sha512",
+    "C:\\Users\\anish1001\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.5\\microsoft.extensions.dependencyinjection.10.0.5.nupkg.sha512",
+    "C:\\Users\\anish1001\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.5\\microsoft.extensions.dependencyinjection.abstractions.10.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}

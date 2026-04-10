@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="WeatherDeskk.Tests/WeatherDeskk.Tests.csproj" Id="15705b1c-a05c-497f-8b18-65e54a813fbb" />
+  <Project Path="WeatherDeskk/WeatherDeskk.csproj" />
+</Solution>
