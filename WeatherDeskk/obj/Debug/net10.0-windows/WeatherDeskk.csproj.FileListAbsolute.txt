@@ -30,3 +30,4 @@ C:\Users\anish1001\source\repos\WeatherDeskk\WeatherDeskk\obj\Debug\net10.0-wind
 C:\Users\anish1001\source\repos\WeatherDeskk\WeatherDeskk\obj\Debug\net10.0-windows\WeatherDeskk.pdb
 C:\Users\anish1001\source\repos\WeatherDeskk\WeatherDeskk\obj\Debug\net10.0-windows\WeatherDeskk.genruntimeconfig.cache
 C:\Users\anish1001\source\repos\WeatherDeskk\WeatherDeskk\obj\Debug\net10.0-windows\ref\WeatherDeskk.dll
+C:\Users\anish1001\source\repos\WeatherDeskk\WeatherDeskk\obj\Debug\net10.0-windows\WeatherDeskk.sourcelink.json

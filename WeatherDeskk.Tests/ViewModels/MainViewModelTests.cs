@@ -6,7 +6,7 @@ using WeatherDeskk.Services;
 using WeatherDeskk.ViewModels;
 using Xunit;
 
-namespace WeatherDeskk.Tests
+namespace WeatherDeskk.Tests.ViewModels
 {
     public class MainViewModelTests
     {

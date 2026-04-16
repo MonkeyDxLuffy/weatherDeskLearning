@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WeatherDeskk.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27d7132730b314e6c0fd4199c5c302e493d44b11")]
 [assembly: System.Reflection.AssemblyProductAttribute("WeatherDeskk.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WeatherDeskk.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
