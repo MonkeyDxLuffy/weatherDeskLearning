@@ -8,8 +8,16 @@ namespace WeatherDeskk.Services
 {
     public class WeatherService : IWeatherService
     {
-        private readonly HttpClient httpClient =
-            new HttpClient();
+        private readonly HttpClient httpClient;
+
+        public WeatherService() : this(new HttpClient())
+        {
+        }
+
+        public WeatherService(HttpClient httpClient)
+        {
+            this.httpClient = httpClient;
+        }
 
         public async Task<WeatherInfo?> GetWeatherAsync(string city)
         {
@@ -30,6 +38,9 @@ namespace WeatherDeskk.Services
 
             string json =
                 await response.Content.ReadAsStringAsync();
+
+            if (string.IsNullOrWhiteSpace(json))
+                return null;
 
             using JsonDocument document =
                 JsonDocument.Parse(json);
